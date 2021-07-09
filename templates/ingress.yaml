@@ -1,4 +1,4 @@
-{{- $fullName := include "helm-charts.fullname" . -}}
+{{- $fullName := .Values.service.name -}}
 {{- $svcPort := .Values.service.port -}}
 {{- if .Values.ingress.enabled -}}
 #########################################################
@@ -16,9 +16,6 @@ spec:
     responseCodeName: MOVED_PERMANENTLY_DEFAULT
 ---
 apiVersion: networking.k8s.io/v1beta1
-{{- else -}}
-apiVersion: extensions/v1beta1
-{{- end }}
 kind: Ingress
 metadata:
   name: {{ $fullName }}
@@ -51,3 +48,4 @@ spec:
               servicePort: {{ $svcPort }}
           {{- end }}
     {{- end }}
+{{- end }}
