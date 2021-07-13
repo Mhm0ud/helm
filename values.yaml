@@ -88,3 +88,13 @@ nats:
   fullnameOverride: nats
   auth:
     enabled: false
+
+cron:
+  enabled: true
+  list:
+    - name: products-cron
+      schedule: "*/5 * * * *"
+      command: products.updateAll
+    - name: orders-cron
+      schedule: "*/30 * * * *"
+      command: orders.updateAll
