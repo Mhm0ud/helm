@@ -84,11 +84,6 @@ laboratory:
   port: 3210
   targetport: 3210
 
-nats:
-  fullnameOverride: nats
-  auth:
-    enabled: false
-
 cron:
   enabled: true
   list:
