@@ -1,3 +1,4 @@
+{{if has "api" .Values.container.services }}
 apiVersion: v1
 kind: Service
 metadata:
@@ -14,6 +15,7 @@ spec:
     - port: {{ .Values.service.port }}
       targetPort: {{ .Values.service.targetport }}
   type: {{ .Values.service.type }}
+{{ end }}
 ---
 {{ if .Values.laboratory.enabled }}
 apiVersion: v1
